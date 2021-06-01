@@ -25,10 +25,8 @@ public class Tracks extends BaseEntity {
     @Column(name = "`popularity`")
     private Integer popularity;
 
-
     @Column(name = "`duration_ms`")
     private Integer duration_ms;
-
 
     @Column(name = "`explicit`")
     private Integer explicit;

@@ -6,6 +6,8 @@ public interface BaseService<T extends BaseEntity> {
 
     List<T> select(T record);
 
+    List<T> search(String searchContent);
+
     int selectCount(T record);
 
     T selectByPrimaryKey(Object key);
@@ -22,12 +24,11 @@ public interface BaseService<T extends BaseEntity> {
 
     int updateByPrimaryKeySelective(T record);
 
-    //int save(T record);
+//    int save(T record);
 
-    //PageInfo<T> selectPage(int pageNum, int pageSize, T record);
+//    PageInfo<T> selectPage(int pageNum, int pageSize, T record);
 
-    //PageInfo<T> selectPage(int pageNum, int pageSize, T record, String orderSqlStr);
+//    PageInfo<T> selectPage(int pageNum, int pageSize, T record, String orderSqlStr);
 
     T selectOne(T record);
 }
-

@@ -6,6 +6,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -25,8 +26,13 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     }
 
     @Override
-    public List<T> select(T record) {
+    public List<T> search(String searchContent) {
+        // TODO for hhp 实现模糊搜索单个表接口 https://www.jianshu.com/p/8f226206ca30
+        return new ArrayList<T>();
+    }
 
+    @Override
+    public List<T> select(T record) {
         return getMapper().select(record);
     }
 
@@ -49,7 +55,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 
     @Override
     public int selectCount(T record) {
-
         return getMapper().selectCount(record);
     }
 

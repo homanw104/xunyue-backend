@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,16 +17,11 @@ public class TracksService extends BaseServiceImpl<Tracks> {
 
     @Override
     public Mapper<Tracks> getMapper() {
-
         return tracksDao;
     }
-
 
     public List<Tracks> searchById(String id) {
         return tracksDao.selectById(id);
     }
-
-
-
 
 }

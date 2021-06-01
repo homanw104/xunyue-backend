@@ -1,6 +1,5 @@
 package world.homans.xunyue.base;
 
-
 import javax.persistence.Entity;
 import java.io.Serializable;
 
@@ -9,7 +8,8 @@ public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /*@Transient
+    /*
+    @Transient
     private Integer page = 1;
 
     @Transient
@@ -29,5 +29,6 @@ public class BaseEntity implements Serializable {
 
     public void setRows(Integer rows) {
         this.rows = rows;
-    }*/
+    }
+    */
 }

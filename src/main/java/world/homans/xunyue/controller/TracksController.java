@@ -24,8 +24,10 @@ public class TracksController extends BaseController {
     @GetMapping(value = "", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "查找内容", notes = "通过id查找track")
     public String getTrackById(@ApiParam(name = "id", value = "id",required = true) @RequestParam String id) {
+        Tracks keyTracks = new Tracks();
+        keyTracks.setId(id);
         List<Tracks> results;
-        results = tracksService.searchById(id);
+        results = tracksService.select(keyTracks);
         if (results.size() == 1) {
             return FastJsonUtils.resultSuccess(200, "搜索track成功", results.get(0));
         } else {

@@ -1,6 +1,5 @@
 package world.homans.xunyue.dao;
 
-
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import world.homans.xunyue.model.Tracks;
@@ -10,9 +9,7 @@ import java.util.List;
 
 public interface TracksDao extends MyMapper<Tracks> {
 
-
     @Select(value = "select * from tracks where id=#{id}")
     List<Tracks> selectById(@Param("id") String id);
-
 
 }

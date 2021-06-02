@@ -24,6 +24,4 @@
         <result column="time_signature" jdbcType="INTEGER" property="time_signature"/>
     </resultMap>
 
-
-
 </mapper>

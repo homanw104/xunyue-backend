@@ -8,7 +8,12 @@
       <remarks>Hibernate</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://db.homans.world:8809/music?characterEncoding=utf-8</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="music@db.homans.world" uuid="71b72f5b-c2ef-4304-af9c-8887250e4d69">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://db.homans.world:8809/music</jdbc-url>
     </data-source>
   </component>
 </project>

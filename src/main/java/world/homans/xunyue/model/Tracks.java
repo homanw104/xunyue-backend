@@ -1,9 +1,5 @@
 package world.homans.xunyue.model;
-
-
 import com.alibaba.fastjson.annotation.JSONType;
-import org.omg.CORBA.INTERNAL;
-import org.w3c.dom.Text;
 import world.homans.xunyue.base.BaseEntity;
 
 import javax.persistence.Column;

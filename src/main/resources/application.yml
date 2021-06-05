@@ -9,6 +9,24 @@ spring:
       enabled: true
       max-file-size: 10MB
       max-request-size: 10MB
+  elasticsearch:
+    rest:
+      uris: api.homans.world:9200
+      username:  temp
+      password: Database0529
 
 server:
+  #端口号
   port: 8080
+  #项目名，如果不设定，默认是 /
+  context-path: /xunyue-backend
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+  mapper-locations: classpath*:/mapper/**.xml
+  type-aliases-package: world.homans.xunyue.model
+
+mapper:
+  mappers: world.homans.xunyue.util.MyMapper
+  not-empty: true
+  identity: MYSQL

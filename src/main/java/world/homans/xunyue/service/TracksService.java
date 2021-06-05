@@ -1,5 +1,6 @@
 package world.homans.xunyue.service;
 
+import springfox.documentation.spring.web.json.Json;
 import world.homans.xunyue.base.BaseServiceImpl;
 import world.homans.xunyue.dao.TracksDao;
 import world.homans.xunyue.model.Tracks;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,5 +23,7 @@ public class TracksService extends BaseServiceImpl<Tracks> {
     public List<Tracks> searchById(String id) {
         return tracksDao.selectById(id);
     }
-
+    public List<Tracks> searchByName(String name) {
+        return tracksDao.selectByName(name);
+    }
 }

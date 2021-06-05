@@ -12,4 +12,7 @@ public interface TracksDao extends MyMapper<Tracks> {
     @Select(value = "select * from tracks where id=#{id}")
     List<Tracks> selectById(@Param("id") String id);
 
+    @Select(value = "select * from tracks where name=#{name}")
+    List<Tracks> selectByName(@Param("name") String name);
+
 }

@@ -8,6 +8,9 @@ public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public static final String INDEX_NAME = "index_entity";
+    public static final String TYPE = "tstype";
+
     /*
     @Transient
     private Integer page = 1;

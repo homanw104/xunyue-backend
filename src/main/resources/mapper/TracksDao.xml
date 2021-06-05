@@ -3,12 +3,12 @@
 <mapper namespace="world.homans.xunyue.dao.TracksDao">
     <resultMap id="TracksMap" type="world.homans.xunyue.model.Tracks">
         <id column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="name" jdbcType="TEXT" property="name"/>
+        <result column="name" jdbcType="LONGVARCHAR" property="name"/>
         <result column="popularity" jdbcType="INTEGER" property="popularity"/>
         <result column="duration_ms" jdbcType="INTEGER" property="duration_ms"/>
         <result column="explicit" jdbcType="INTEGER" property="explicit"/>
-        <result column="artists" jdbcType="TEXT" property="artists"/>
-        <result column="id_artists" jdbcType="TEXT" property="id_artists"/>
+        <result column="artists" jdbcType="LONGVARCHAR" property="artists"/>
+        <result column="id_artists" jdbcType="LONGVARCHAR" property="id_artists"/>
         <result column="release_date" jdbcType="VARCHAR" property="release_date"/>
         <result column="danceability" jdbcType="DOUBLE" property="danceability"/>
         <result column="energy" jdbcType="DOUBLE" property="energy"/>
@@ -23,4 +23,6 @@
         <result column="tempo" jdbcType="DOUBLE" property="tempo"/>
         <result column="time_signature" jdbcType="INTEGER" property="time_signature"/>
     </resultMap>
+
+
 </mapper>

@@ -1,10 +1,7 @@
 package world.homans.xunyue.model;
 
 import com.alibaba.fastjson.annotation.JSONType;
-import org.omg.CORBA.INTERNAL;
-import org.w3c.dom.Text;
 import world.homans.xunyue.base.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 
@@ -33,6 +30,10 @@ public class Artists extends BaseEntity{
         this.genres =genres;
         this.name =name;
         this.popularity =popularity;
+    }
+    public Artists()
+    {
+
     }
 
     public String getId() {

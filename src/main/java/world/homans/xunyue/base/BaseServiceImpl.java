@@ -29,7 +29,9 @@ import java.util.Map.Entry;
 @Service
 @Slf4j
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
-
+ //   @Autowired
+   // @Resource
+    //public JestClient jestClient;
 
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(BaseServiceImpl.class);
 
@@ -45,19 +47,19 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     @Override
     public List<?> search(String searchContent)  {
         // TODO for hhp 实现模糊搜索单个表接口 https://www.jianshu.com/p/8f226206ca30
-        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         //searchSourceBuilder.query(QueryBuilders.queryStringQuery(searchContent));
         //searchSourceBuilder.field("name");
-        searchSourceBuilder.query(QueryBuilders.matchQuery("name",searchContent));
-        Search search = new Search.Builder(searchSourceBuilder.toString())
-                .addIndex(T.INDEX_NAME).addType(T.TYPE).build();
-       // try {
-           // JestResult result = jestClient.execute(search);
-           // return result.getSourceAsObjectList(getParameterClass());
-       // } catch (IOException e) {
+        //searchSourceBuilder.query(QueryBuilders.matchQuery("name",searchContent));
+        //Search search = new Search.Builder(searchSourceBuilder.toString())
+          //      .addIndex(T.INDEX_NAME).addType(T.TYPE).build();
+        //try {
+          //  JestResult result = jestClient.execute(search);
+            //return result.getSourceAsObjectList(getParameterClass());
+       //} catch (IOException e) {
          //   LOGGER.error(e.getMessage());
-         //   e.printStackTrace();
-        //}
+           // e.printStackTrace();
+       // }
         return null;
     }
 

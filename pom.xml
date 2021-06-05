@@ -147,6 +147,12 @@
             <version>5.8.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>me.ccampo</groupId>
+            <artifactId>uuid62-core</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

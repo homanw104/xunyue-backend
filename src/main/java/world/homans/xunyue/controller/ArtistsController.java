@@ -1,5 +1,6 @@
 package world.homans.xunyue.controller;
 
+import me.ccampo.uuid62.core.util.UUIDUtilsKt;
 import world.homans.xunyue.model.Artists;
 import world.homans.xunyue.service.ArtistsService;
 import world.homans.xunyue.util.FastJsonUtils;
@@ -13,6 +14,7 @@ import world.homans.xunyue.base.BaseController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 
 @RestController
@@ -21,7 +23,6 @@ import java.util.Map;
 public class ArtistsController extends BaseController {
     @Autowired
     private ArtistsService artistsService;
-
 
     @GetMapping(value = "/artists", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "查找内容", notes = "通过id查找artists")
@@ -34,13 +35,12 @@ public class ArtistsController extends BaseController {
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "添加歌手", notes = "添加歌手")
     public String insert(
-            @ApiParam(name = "id", value = "艺术家编号", required = true) @RequestParam String id,
             @ApiParam(name = "followers", value = "粉丝数目", required = true) @RequestParam int followers,
             @ApiParam(name = "genres", value = "流派", required = true) @RequestParam String genres,
             @ApiParam(name = "name", value = "艺术家名字", required = true) @RequestParam String name,
             @ApiParam(name = "popularity", value = "受欢迎程度", required = true) @RequestParam int popularity) {
         System.out.println(name);
-        //long id = super.getIdGeneratorUtils().nextId();
+        String id = UUIDUtilsKt.toBase62String(UUID.randomUUID());
         Artists artists = new Artists(id, followers, genres, name, popularity);
         artistsService.insertArtists(artists);
         Map<String, Object> result = new HashMap<>();

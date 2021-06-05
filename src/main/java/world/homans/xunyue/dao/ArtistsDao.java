@@ -12,4 +12,7 @@ public interface ArtistsDao extends MyMapper<Artists> {
     @Select(value = "select * from artists where id=#{id}")
     List<Artists> selectById(@Param("id") String id);
 
+    void insertArtists(Artists artists);
+
 }
+

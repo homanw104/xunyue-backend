@@ -16,7 +16,7 @@ public class Artists extends BaseEntity{
     private String id;
 
     @Column(name = "`followers`")
-    private Integer followers;
+    private int followers;
 
     @Column(name = "`genres`")
     private String genres;
@@ -25,14 +25,18 @@ public class Artists extends BaseEntity{
     private String name;
 
     @Column(name = "`popularity`")
-    private Integer popularity;
+    private int popularity;
 
-    public Artists(String id, Integer followers, String genres, String name, Integer popularity) {
+    public Artists(String id, int followers, String genres, String name, int popularity) {
         this.id = id;
         this.followers = followers;
         this.genres =genres;
         this.name =name;
         this.popularity =popularity;
+    }
+
+    public Artists() {
+
     }
 
     public String getId() {
@@ -43,11 +47,11 @@ public class Artists extends BaseEntity{
         this.id = id;
     }
 
-    public Integer getFollowers() {
+    public int getFollowers() {
         return followers;
     }
 
-    public void setFollowers(Integer  followers) {
+    public void setFollowers(int  followers) {
         this.followers = followers;
     }
 
@@ -63,9 +67,9 @@ public class Artists extends BaseEntity{
         this.name = name;
     }
 
-    public Integer getPopularity() { return popularity; }
+    public int getPopularity() { return popularity; }
 
-    public void setPopularity(Integer popularity) {
+    public void setPopularity(int popularity) {
         this.popularity = popularity;
     }
 

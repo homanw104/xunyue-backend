@@ -23,13 +23,13 @@ public class Tracks extends BaseEntity {
     private String name;
 
     @Column(name = "`popularity`")
-    private Integer popularity;
+    private int popularity;
 
     @Column(name = "`duration_ms`")
-    private Integer duration_ms;
+    private int duration_ms;
 
     @Column(name = "`explicit`")
-    private Integer explicit;
+    private int explicit;
 
     @Column(name = "`artists`")
     private String artists;
@@ -47,13 +47,13 @@ public class Tracks extends BaseEntity {
     private Double energy;
 
     @Column(name = "`key`")
-    private Integer key;
+    private int key;
 
     @Column(name = "`loudness`")
     private Double loudness;
 
     @Column(name = "`mode`")
-    private Integer mode;
+    private int mode;
 
     @Column(name = "`speechiness`")
     private Double speechiness;
@@ -78,10 +78,10 @@ public class Tracks extends BaseEntity {
 
 
 
-    public Tracks(String id, String name, Integer popularity, Integer duration_ms, Integer explicit, String artists,
-                  String id_artists, String release_date, Double danceability, Double energy, Integer key, Double loudness, Integer mode ,
+    public Tracks(String id, String name, int popularity, int duration_ms, int explicit, String artists,
+                  String id_artists, String release_date, Double danceability, Double energy, int key, Double loudness, int mode ,
                   Double speechiness, Double acousticness, Double instrumentalness, Double liveness, Double valence,
-                  Double tempo, Integer time_signature) {
+                  Double tempo, int time_signature) {
         this.id = id;
         this.name = name;
         this.popularity =popularity;

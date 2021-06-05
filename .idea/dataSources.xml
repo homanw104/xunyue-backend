@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="xunyue-backend/Hibernate" uuid="0c6b3b6d-64ba-4e2d-adaf-c1313da0cf73">
+    <data-source source="LOCAL" name="music@db.homans.world" uuid="1e101cb3-57dd-49e8-a56c-42a00f1460dd">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://db.homans.world:8809/music?characterEncoding=utf-8</jdbc-url>
+      <jdbc-url>jdbc:mysql://db.homans.world:8809/music</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -15,11 +15,6 @@ import world.homans.xunyue.util.FastJsonUtils;
 @RequestMapping("/search")
 @Api(description = "模糊搜索接口")
 public class SearchController extends BaseController {
-//    @Autowired
-//    private TracksService tracksService;
-
-//    @Autowired
-//    private ArtistsService artistsService;
 
     @GetMapping(value = "", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "模糊搜索", notes = "通过关键词模糊搜索 tracks 与 artists")

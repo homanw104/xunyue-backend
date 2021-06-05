@@ -2,13 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="world.homans.xunyue.dao.ArtistsDao">
-
     <resultMap id="ArtistsMap" type="world.homans.xunyue.model.Artists">
         <id column="id" jdbcType="VARCHAR" property="id"/>
         <result column="followers" jdbcType="INTEGER" property="followers"/>
-        <result column="genres" jdbcType="TEXT" property="genres"/>
+        <result column="genres" jdbcType="LONGVARCHAR" property="genres"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="popularity" jdbcType="INTEGER" property="popularity"/>
     </resultMap>
-    
+
+    <insert id="insertArtists" parameterType="Artists">
+        INSERT INTO artists (id, followers, genres, name, popularity) Value(#{id},#{followers},#{genres},#{name},#{popularity})
+    </insert>
+
 </mapper>
+

@@ -37,6 +37,34 @@ public class TracksController extends BaseController {
             return FastJsonUtils.resultError(404, "id不存在", null);
         }
     }
+    @PostMapping("/update")
+    @ApiOperation(value = "修改歌曲信息", notes = "修改歌曲信息")
+    public String updateInfo(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id,
+                             @ApiParam(name = "name", value = "歌曲名称")@RequestParam(required = false, defaultValue = "") String name,
+                             @ApiParam(name = "explicit", value = "是否暴露")@RequestParam(required = false, defaultValue = "") int explicit,
+                             @ApiParam(name = "artists", value = "艺人名字")@RequestParam(required = false, defaultValue = "") String artists,
+                             @ApiParam(name = "duration_ms", value = "时长")@RequestParam(required = false, defaultValue = "") int duration_ms,
+                             @ApiParam(name = "release_date", value = "发行时间")@RequestParam(required = false, defaultValue = "") String release_date,
+                             @ApiParam(name = "popularity", value = "受欢迎程度")@RequestParam(required = false, defaultValue = "") int popularity
+
+    ) {
+        Tracks newTra=tracksService.searchById(id).get(0);
+        if(!"".equals(name))
+            newTra.setName(name);
+        if(!"".equals(explicit))
+            newTra.setExplicit(explicit);
+        if(!"".equals(artists))
+            newTra.setArtists(artists);
+        if(!"".equals(duration_ms))
+            newTra.setExplicit(duration_ms);
+        if(!"".equals(release_date))
+            newTra.setArtists(release_date);
+        if(!"".equals(popularity))
+            newTra.setPopularity(popularity);
+        tracksService.update(newTra);
+        return FastJsonUtils.resultSuccess(200, "修改成功", null);
+
+    }
 
     @ResponseBody
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})

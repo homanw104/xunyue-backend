@@ -3,6 +3,9 @@ package world.homans.xunyue.util;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import me.ccampo.uuid62.core.util.UUIDUtilsKt;
+
+import java.util.UUID;
 
 @Component
 public class IdGeneratorUtils {
@@ -101,5 +104,6 @@ public class IdGeneratorUtils {
     protected long timeGen() {
         return System.currentTimeMillis();
     }
+
 
 }

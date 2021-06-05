@@ -6,7 +6,7 @@ public interface BaseService<T extends BaseEntity> {
 
     List<T> select(T record);
 
-    List<T> search(String searchContent);
+    List<?> search(String searchContent);
 
     int selectCount(T record);
 

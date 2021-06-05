@@ -1,20 +1,39 @@
 package world.homans.xunyue.base;
 
+import io.searchbox.client.JestClient;
+import io.searchbox.client.JestResult;
+import io.searchbox.core.Search;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
-import java.util.ArrayList;
+import javax.annotation.Resource;
+import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+
 //import com.github.pagehelper.PageHelper;
 //import com.github.pagehelper.PageInfo;
-
+@Service
+@Slf4j
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
+ //   @Autowired
+   // @Resource
+    //public JestClient jestClient;
+
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(BaseServiceImpl.class);
 
     public abstract Mapper<T> getMapper();
 
@@ -26,10 +45,24 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     }
 
     @Override
-    public List<T> search(String searchContent) {
+    public List<?> search(String searchContent)  {
         // TODO for hhp 实现模糊搜索单个表接口 https://www.jianshu.com/p/8f226206ca30
-        return new ArrayList<T>();
+        //SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //searchSourceBuilder.query(QueryBuilders.queryStringQuery(searchContent));
+        //searchSourceBuilder.field("name");
+        //searchSourceBuilder.query(QueryBuilders.matchQuery("name",searchContent));
+        //Search search = new Search.Builder(searchSourceBuilder.toString())
+          //      .addIndex(T.INDEX_NAME).addType(T.TYPE).build();
+        //try {
+          //  JestResult result = jestClient.execute(search);
+            //return result.getSourceAsObjectList(getParameterClass());
+       //} catch (IOException e) {
+         //   LOGGER.error(e.getMessage());
+           // e.printStackTrace();
+       // }
+        return null;
     }
+
 
     @Override
     public List<T> select(T record) {
@@ -91,6 +124,13 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     @Override
     public int updateByPrimaryKeySelective(T record) {
         return getMapper().updateByPrimaryKeySelective(record);
+    }
+
+    /**
+     * Utility method. Return parameter class.
+     */
+    public Class<?> getParameterClass() {
+        return (Class<?>) (((ParameterizedType)BaseServiceImpl.class.getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 
 

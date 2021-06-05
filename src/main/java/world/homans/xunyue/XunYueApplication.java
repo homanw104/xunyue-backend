@@ -7,9 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("world.homans.xunyue.dao")
 public class XunYueApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(XunYueApplication.class, args);
     }
-
 }

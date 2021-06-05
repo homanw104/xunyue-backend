@@ -1,5 +1,4 @@
 package world.homans.xunyue.controller;
-
 import me.ccampo.uuid62.core.util.UUIDUtilsKt;
 import world.homans.xunyue.model.Artists;
 import world.homans.xunyue.service.ArtistsService;

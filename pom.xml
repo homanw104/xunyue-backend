@@ -161,6 +161,7 @@
             <version>5.8.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/me.ccampo/uuid62-core -->
         <dependency>
             <groupId>me.ccampo</groupId>
             <artifactId>uuid62-core</artifactId>
@@ -191,7 +192,6 @@
                     <dependency>
                         <groupId>tk.mybatis</groupId>
                         <artifactId>mapper</artifactId>
-                        <version>3.4.0</version>
                     </dependency>
                 </dependencies>
             </plugin>

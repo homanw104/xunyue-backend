@@ -36,10 +36,6 @@ public class Artists extends BaseEntity{
 
     }
 
-    public Artists() {
-
-    }
-
     public String getId() {
         return id;
     }

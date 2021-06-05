@@ -198,7 +198,6 @@
     <orderEntry type="library" name="Maven: com.carrotsearch:hppc:0.8.1" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.10.4" level="project" />
     <orderEntry type="library" name="Maven: com.tdunning:t-digest:3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.9" level="project" />
     <orderEntry type="library" name="Maven: org.elasticsearch:jna:5.7.0-1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.elasticsearch:elasticsearch-plugin-classloader:7.12.1" level="project" />
     <orderEntry type="library" name="Maven: org.elasticsearch.client:elasticsearch-rest-client:7.12.1" level="project" />

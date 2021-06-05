@@ -20,7 +20,6 @@ public interface ArtistsDao extends MyMapper<Artists> {
     @Update(value = "update artists set followers=#{followers}, genres=#{genres}, name=#{name},popularity=#{popularity} where id=#{id}")
     void updateById(Artists newArt);
 
-    void insertArtists(Artists artists);
 
 }
 

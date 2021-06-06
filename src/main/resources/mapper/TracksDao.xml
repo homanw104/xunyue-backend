@@ -31,4 +31,10 @@
                   #{energy},#{key},#{loudness},#{mode},#{speechiness},#{instrumentalness},#{liveness},#{valence},#{tempo},#{time_signature})
     </insert>
 
+    <select id="selectByName" resultMap="TracksMap">
+        select * from `tracks`
+        where
+            name like CONCAT('%',#{name},'%')
+    </select>
+
 </mapper>

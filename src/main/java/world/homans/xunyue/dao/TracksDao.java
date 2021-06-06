@@ -15,12 +15,11 @@ public interface TracksDao extends MyMapper<Tracks> {
     @Select(value = "select * from tracks where id=#{id}")
     List<Tracks> selectById(@Param("id") String id);
 
-    @Select(value = "select * from tracks where name=#{name}")
-    List<Tracks> selectByName(@Param("name") String name);
-
     @Update(value = "update tracks set name=#{name}, explicit=#{explicit}, artists=#{artists},duration_ms=#{duration_ms},release_date=#{release_date},popularity=#{popularity} where id=#{id}")
     void updateById(Tracks newTra);
 
     void insertTracks(Tracks tracks);
+
+    List<Tracks> selectByName(String name);
 
 }

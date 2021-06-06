@@ -102,4 +102,12 @@ public class TracksController extends BaseController {
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
 
+    @GetMapping(value = "/search_by_name", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "查找内容", notes = "通过name查找tracks")
+    public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
+        List<Tracks> results;
+        results=tracksService.searchByName(name);
+        return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
+    }
+
 }

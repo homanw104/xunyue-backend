@@ -15,4 +15,10 @@
         INSERT INTO artists (id, followers, genres, name, popularity) Value(#{id},#{followers},#{genres},#{name},#{popularity})
     </insert>
 
+    <select id="selectByName" resultMap="ArtistsMap">
+        select * from `artists`
+        where
+            name like CONCAT('%',#{name},'%')
+    </select>
+
 </mapper>

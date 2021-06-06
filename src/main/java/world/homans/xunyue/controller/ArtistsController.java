@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import world.homans.xunyue.base.BaseController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,4 +72,14 @@ public class ArtistsController extends BaseController {
         return FastJsonUtils.resultSuccess(200, "修改成功", null);
 
     }
+
+    @GetMapping(value = "/search_by_name", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "查找内容", notes = "通过name查找artists")
+    public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
+        List<Artists> results;
+        results=artistsService.searchByName(name);
+        return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
+    }
+
+
 }

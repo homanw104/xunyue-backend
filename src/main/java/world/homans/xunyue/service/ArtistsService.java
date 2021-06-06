@@ -27,9 +27,15 @@ public class ArtistsService extends BaseServiceImpl<Artists> {
 
     public  void insertArtists(Artists artists) {
         artistsDao.insertArtists(artists);
-    };
+    }
 
     public void update(Artists newArt) {
         artistsDao.updateById(newArt);
     }
+
+    public List<Artists> searchByName(String name) {
+        return artistsDao.selectByName(name);
+    }
+
+
 }

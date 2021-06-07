@@ -44,23 +44,33 @@ public class SearchController extends BaseController {
         artistsresults = artistsService.searchByName(name);
         result1.put("artists", artistsresults);
         result2.put("tracks",tracksresults);
-        int a=artistsresults.get(0).getPopularity();
-        int b=tracksresults.get(0).getPopularity();
-        String type;
-        if(a>b){
-            topresult.put("data",artistsresults.get(0));
-            type="artist";
-        }
-        else{
+        result.put("top",topresult);
+        String type="";
+        if(artistsresults.size()==0){
             topresult.put("data",tracksresults.get(0));
             type="tracks";
         }
+        else if(tracksresults.size()==0)
+        {
+            topresult.put("data",artistsresults.get(0));
+            type="artists";
+        }
+        else {
+            int a=artistsresults.get(0).getPopularity();
+            int b=tracksresults.get(0).getPopularity();
+            if(a>b){
+                topresult.put("data",artistsresults.get(0));
+                type="artists";
+            }
+            else {
+                topresult.put("data",tracksresults.get(0));
+                type="tracks";
+            }
+        }
         topresult.put("type",type);
-
         result.put("top",topresult);
         result.putAll(result1);
         result.putAll(result2);
-
         return FastJsonUtils.resultSuccess(200, "搜索成功", result);
     }
 

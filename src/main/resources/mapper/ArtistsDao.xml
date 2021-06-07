@@ -17,8 +17,7 @@
 
     <select id="selectByName" resultMap="ArtistsMap">
         select * from `artists`
-        where
-            name like CONCAT('%',#{name},'%')
+        where name like CONCAT('%',#{name},'%')
         order by popularity desc
        limit 6
     </select>

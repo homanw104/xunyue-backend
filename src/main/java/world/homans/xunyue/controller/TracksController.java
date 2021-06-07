@@ -24,20 +24,18 @@ public class TracksController extends BaseController {
     @Autowired
     private TracksService tracksService;
 
-    @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/info", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "通过id查找内容", notes = "通过id查找track")
     public String getTrackById(@ApiParam(name = "id", value = "id",required = true) @RequestParam String id) {
-        Tracks keyTracks = new Tracks();
-        keyTracks.setId(id);
         List<Tracks> results;
-        results = tracksService.select(keyTracks);
+        results = tracksService.searchById(id);
         if (results.size() == 1) {
             return FastJsonUtils.resultSuccess(200, "搜索track成功", results.get(0));
         } else {
             return FastJsonUtils.resultError(404, "id不存在", null);
         }
     }
-    @GetMapping(value = "/search_by_name", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "通过name查找内容", notes = "通过name查找artists")
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
         List<Tracks> results;

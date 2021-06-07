@@ -34,17 +34,33 @@ public class SearchController extends BaseController {
     @ApiOperation(value = "模糊搜索", notes = "通过关键词模糊搜索 tracks 与 artists")
     public String search(@ApiParam(name = "name", value = "name", required = true) @RequestParam String name) {
         // TODO for hhp 调用 tracksService.search 和 artistService.search 查询，结果合并在一个 json 中返回
-        List<Map<String, Object>> result = new ArrayList<>();
+        Map<String, Object> result = new HashMap<>();
         Map<String, Object> result1 = new HashMap<>();
         Map<String, Object> result2 = new HashMap<>();
+        Map<String, Object> topresult = new HashMap<>();
         List<Tracks> tracksresults;
         List<Artists> artistsresults;
         tracksresults = tracksService.searchByName(name);
         artistsresults = artistsService.searchByName(name);
-        result1.put("artists:", artistsresults);
-        result2.put("tracks:",tracksresults);
-        result.add(result1);
-        result.add(result2);
+        result1.put("artists", artistsresults);
+        result2.put("tracks",tracksresults);
+        int a=artistsresults.get(0).getPopularity();
+        int b=tracksresults.get(0).getPopularity();
+        String type;
+        if(a>b){
+            topresult.put("data",artistsresults.get(0));
+            type="artist";
+        }
+        else{
+            topresult.put("data",tracksresults.get(0));
+            type="tracks";
+        }
+        topresult.put("type",type);
+
+        result.put("top",topresult);
+        result.putAll(result1);
+        result.putAll(result2);
+
         return FastJsonUtils.resultSuccess(200, "搜索成功", result);
     }
 

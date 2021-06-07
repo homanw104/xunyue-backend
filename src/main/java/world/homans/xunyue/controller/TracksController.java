@@ -24,8 +24,8 @@ public class TracksController extends BaseController {
     @Autowired
     private TracksService tracksService;
 
-    @GetMapping(value = "", produces = {"application/json;charset=UTF-8"})
-    @ApiOperation(value = "查找内容", notes = "通过id查找track")
+    @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "通过id查找内容", notes = "通过id查找track")
     public String getTrackById(@ApiParam(name = "id", value = "id",required = true) @RequestParam String id) {
         Tracks keyTracks = new Tracks();
         keyTracks.setId(id);
@@ -36,6 +36,13 @@ public class TracksController extends BaseController {
         } else {
             return FastJsonUtils.resultError(404, "id不存在", null);
         }
+    }
+    @GetMapping(value = "/search_by_name", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "通过name查找内容", notes = "通过name查找artists")
+    public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
+        List<Tracks> results;
+        results=tracksService.searchByName(name);
+        return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results);
     }
     @PostMapping("/update")
     @ApiOperation(value = "修改歌曲信息", notes = "修改歌曲信息")
@@ -102,12 +109,5 @@ public class TracksController extends BaseController {
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
 
-    @GetMapping(value = "/search_by_name", produces = {"application/json;charset=UTF-8"})
-    @ApiOperation(value = "查找内容", notes = "通过name查找tracks")
-    public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
-        List<Tracks> results;
-        results=tracksService.searchByName(name);
-        return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
-    }
 
 }

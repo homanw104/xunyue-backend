@@ -19,6 +19,8 @@
         select * from `artists`
         where
             name like CONCAT('%',#{name},'%')
+        order by popularity desc
+       limit 6
     </select>
 
 </mapper>

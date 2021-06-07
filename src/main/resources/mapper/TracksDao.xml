@@ -30,11 +30,13 @@
             Value(#{id},#{name},#{popularity},#{duration_ms},#{explicit},#{artists},#{id_artists},#{release_date},#{danceability},
                   #{energy},#{key},#{loudness},#{mode},#{speechiness},#{instrumentalness},#{liveness},#{valence},#{tempo},#{time_signature})
     </insert>
-
     <select id="selectByName" resultMap="TracksMap">
         select * from `tracks`
         where
             name like CONCAT('%',#{name},'%')
+        order by popularity desc
+        limit 6
     </select>
+
 
 </mapper>

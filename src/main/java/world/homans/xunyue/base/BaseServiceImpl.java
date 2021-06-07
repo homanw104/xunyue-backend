@@ -1,5 +1,6 @@
 package world.homans.xunyue.base;
 
+
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestResult;
 import io.searchbox.core.Search;
@@ -29,9 +30,9 @@ import java.util.Map.Entry;
 @Service
 @Slf4j
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
- //   @Autowired
+  // @Autowired
    // @Resource
-    //public JestClient jestClient;
+   // public JestClient jestClient;
 
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(BaseServiceImpl.class);
 
@@ -50,16 +51,16 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         //SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         //searchSourceBuilder.query(QueryBuilders.queryStringQuery(searchContent));
         //searchSourceBuilder.field("name");
-        //searchSourceBuilder.query(QueryBuilders.matchQuery("name",searchContent));
+       // searchSourceBuilder.query(QueryBuilders.matchQuery("name",searchContent));
         //Search search = new Search.Builder(searchSourceBuilder.toString())
           //      .addIndex(T.INDEX_NAME).addType(T.TYPE).build();
         //try {
-          //  JestResult result = jestClient.execute(search);
+          // JestResult result = jestClient.execute(search);
             //return result.getSourceAsObjectList(getParameterClass());
        //} catch (IOException e) {
-         //   LOGGER.error(e.getMessage());
+         //  LOGGER.error(e.getMessage());
            // e.printStackTrace();
-       // }
+        //}
         return null;
     }
 

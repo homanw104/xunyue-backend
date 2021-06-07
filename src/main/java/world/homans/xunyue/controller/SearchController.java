@@ -46,6 +46,10 @@ public class SearchController extends BaseController {
         result2.put("tracks",tracksresults);
         result.put("top",topresult);
         String type="";
+        if(artistsresults.size()==0&&tracksresults.size()==0) {
+            return FastJsonUtils.resultSuccess(404, "没有记录", null);
+        }
+        else{
         if(artistsresults.size()==0){
             topresult.put("data",tracksresults.get(0));
             type="tracks";
@@ -71,7 +75,7 @@ public class SearchController extends BaseController {
         result.put("top",topresult);
         result.putAll(result1);
         result.putAll(result2);
-        return FastJsonUtils.resultSuccess(200, "搜索成功", result);
+        return FastJsonUtils.resultSuccess(200, "搜索成功", result);}
     }
 
 }

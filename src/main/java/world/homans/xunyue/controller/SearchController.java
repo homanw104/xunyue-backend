@@ -14,8 +14,6 @@ import world.homans.xunyue.model.Tracks;
 import world.homans.xunyue.service.ArtistsService;
 import world.homans.xunyue.service.TracksService;
 import world.homans.xunyue.util.FastJsonUtils;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,5 +75,4 @@ public class SearchController extends BaseController {
         result.putAll(result2);
         return FastJsonUtils.resultSuccess(200, "搜索成功", result);}
     }
-
 }

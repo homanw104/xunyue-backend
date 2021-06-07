@@ -1,6 +1,7 @@
 package world.homans.xunyue.controller;
 
 
+import me.ccampo.uuid62.core.util.UUIDUtilsKt;
 import world.homans.xunyue.model.Tracks;
 import world.homans.xunyue.service.TracksService;
 import world.homans.xunyue.util.FastJsonUtils;
@@ -11,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import world.homans.xunyue.base.BaseController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @RestController
@@ -40,7 +38,11 @@ public class TracksController extends BaseController {
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
         List<Tracks> results;
         results=tracksService.searchByName(name);
-        return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results);
+        if (results.size() == 1) {
+            return FastJsonUtils.resultSuccess(200, "搜索track成功", results.get(0));
+        } else {
+            return FastJsonUtils.resultError(404, "name不存在", null);
+        }
     }
     @PostMapping("/update")
     @ApiOperation(value = "修改歌曲信息", notes = "修改歌曲信息")
@@ -75,7 +77,6 @@ public class TracksController extends BaseController {
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "添加曲目", notes = "添加曲目")
     public String insert(
-            @ApiParam(name = "id", value = "曲目编号", required = true) @RequestParam String id,
             @ApiParam(name = "name", value = "曲目名称", required = true) @RequestParam String name,
             @ApiParam(name = "popularity", value = "受欢迎程度", required = true) @RequestParam int popularity,
             @ApiParam(name = "duration_ms", value = "时间") @RequestParam(required = false,defaultValue = "0") int duration_ms,
@@ -96,7 +97,7 @@ public class TracksController extends BaseController {
             @ApiParam(name = "tempo", value = "节拍") @RequestParam(required = false,defaultValue = "") Double tempo,
             @ApiParam(name = "time_signature", value = "节拍记号") @RequestParam(required = false,defaultValue = "0") int time_signature){
         System.out.println(name);
-        //long id = super.getIdGeneratorUtils().nextId();
+        String id = UUIDUtilsKt.toBase62String(UUID.randomUUID());
         Tracks tracks = new Tracks(id, name, popularity, duration_ms, explicit, artists,
                 id_artists, release_date, danceability, energy, key, loudness, mode ,
                 speechiness, acousticness, instrumentalness, liveness, valence,

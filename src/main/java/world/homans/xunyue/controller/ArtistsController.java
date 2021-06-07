@@ -40,8 +40,11 @@ public class ArtistsController extends BaseController {
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
         List<Artists> results;
         results=artistsService.searchByName(name);
-
-        return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
+        if (results.size() == 1) {
+            return FastJsonUtils.resultSuccess(200, "搜索track成功", results.get(0));
+        } else {
+            return FastJsonUtils.resultError(404, "name不存在", null);
+        }
     }
     @ResponseBody
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})
@@ -78,9 +81,5 @@ public class ArtistsController extends BaseController {
             newArt.setPopularity(popularity);
         artistsService.update(newArt);
         return FastJsonUtils.resultSuccess(200, "修改成功", null);
-
     }
-
-
-
 }

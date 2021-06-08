@@ -21,8 +21,7 @@ public interface TracksDao extends MyMapper<Tracks> {
     void insertTracks(Tracks tracks);
     List<Tracks> selectByNameInd(String name);
     List<Tracks> selectByName(String name);
+    List<Tracks> selectByAid(String id_artists);
     List<Tracks> selectTop8();
-
     void deleteTracks(String id);
-
 }

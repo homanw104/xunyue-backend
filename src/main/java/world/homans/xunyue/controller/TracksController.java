@@ -46,6 +46,21 @@ public class TracksController extends BaseController {
             return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results);
         }
     }
+    @GetMapping(value = "/showByAid", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "通过artists_id查找内容", notes = "通过artists_id查找tracks")
+    public String searchByAid(@ApiParam(name = "id_artists", value = "id_artists",required = true) @RequestParam String id_artists) {
+        List<Tracks> results;
+        id_artists="['"+id_artists+"']";
+        results=tracksService.searchByAid(id_artists);
+
+       if(results.size()==0)
+        {
+         return FastJsonUtils.resultSuccess(404, "tracks不存在", null);
+        }
+        else {
+            return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results.get(0));
+        }
+    }
     @PostMapping("/update")
     @ApiOperation(value = "修改歌曲信息", notes = "修改歌曲信息")
     public String updateInfo(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id,

@@ -16,6 +16,11 @@
         INSERT INTO tracks (id, name, popularity, duration_ms, explicit, artists, id_artists, release_date)
             Value(#{id},#{name},#{popularity},#{duration_ms},#{explicit},#{artists},#{id_artists},#{release_date})
     </insert>
+    <select id="selectByAid" resultMap="TracksMap">
+        select * from `tracks`
+        where
+            id_artists = #{id_artists}
+    </select>
     <select id="selectByNameInd" resultMap="TracksMap">
         select * from `tracks`
         where

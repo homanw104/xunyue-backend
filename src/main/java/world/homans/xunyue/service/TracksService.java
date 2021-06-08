@@ -39,6 +39,9 @@ public class TracksService extends BaseServiceImpl<Tracks> {
     public List<Tracks> searchByName(String name) {
         return tracksDao.selectByName(name);
     }
+    public List<Tracks> searchByAid(String id_artists) {
+        return tracksDao.selectByAid(id_artists);
+    }
     public List<Tracks> showTop8() {
         return tracksDao.selectTop8();
     }

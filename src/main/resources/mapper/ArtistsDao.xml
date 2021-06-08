@@ -14,10 +14,15 @@
     <insert id="insertArtists" parameterType="Artists">
         INSERT INTO artists (id, followers, genres, name, popularity) Value(#{id},#{followers},#{genres},#{name},#{popularity})
     </insert>
-
+    <select id="selectByNameInd" resultMap="ArtistsMap">
+        select * from `artists`
+        where
+              name like CONCAT('%',#{name},'%')
+    </select>
     <select id="selectByName" resultMap="ArtistsMap">
         select * from `artists`
-        where name like CONCAT('%',#{name},'%')
+        where
+              name like CONCAT('%',#{name},'%')
         order by popularity desc
        limit 6
     </select>

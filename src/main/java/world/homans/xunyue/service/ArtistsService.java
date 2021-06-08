@@ -32,9 +32,13 @@ public class ArtistsService extends BaseServiceImpl<Artists> {
     public void update(Artists newArt) {
         artistsDao.updateById(newArt);
     }
-
+    //artists和tracks都进行模糊搜索并根据popularity排序
     public List<Artists> searchByName(String name) {
         return artistsDao.selectByName(name);
+    }
+    //单独进行模糊搜索
+    public List<Artists> searchByNameInd(String name) {
+        return artistsDao.selectByNameInd(name);
     }
 
     public  void deleteArtists(String id) {

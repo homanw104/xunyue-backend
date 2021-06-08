@@ -20,7 +20,7 @@ public interface ArtistsDao extends MyMapper<Artists> {
     void updateById(Artists newArt);
 
     List<Artists> selectByName(String name);
-
+    List<Artists> selectByNameInd(String name);
     void deleteArtists(String id);
 
 }

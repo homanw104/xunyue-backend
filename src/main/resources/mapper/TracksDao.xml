@@ -16,6 +16,11 @@
         INSERT INTO tracks (id, name, popularity, duration_ms, explicit, artists, id_artists, release_date)
             Value(#{id},#{name},#{popularity},#{duration_ms},#{explicit},#{artists},#{id_artists},#{release_date})
     </insert>
+    <select id="selectByNameInd" resultMap="TracksMap">
+        select * from `tracks`
+        where
+            name like CONCAT('%',#{name},'%')
+    </select>
     <select id="selectByName" resultMap="TracksMap">
         select * from `tracks`
         where

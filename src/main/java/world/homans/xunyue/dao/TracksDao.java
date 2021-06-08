@@ -19,7 +19,7 @@ public interface TracksDao extends MyMapper<Tracks> {
     void updateById(Tracks newTra);
 
     void insertTracks(Tracks tracks);
-
+    List<Tracks> selectByNameInd(String name);
     List<Tracks> selectByName(String name);
     List<Tracks> selectTop8();
 

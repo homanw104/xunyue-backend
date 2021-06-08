@@ -33,7 +33,9 @@ public class TracksService extends BaseServiceImpl<Tracks> {
     public  void insertTracks(Tracks tracks) {
         tracksDao.insertTracks(tracks);
     }
-
+    public List<Tracks> searchByNameInd(String name) {
+        return tracksDao.selectByNameInd(name);
+    }
     public List<Tracks> searchByName(String name) {
         return tracksDao.selectByName(name);
     }

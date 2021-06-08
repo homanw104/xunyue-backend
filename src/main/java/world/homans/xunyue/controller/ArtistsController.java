@@ -39,11 +39,13 @@ public class ArtistsController extends BaseController {
     @ApiOperation(value = "通过name查找内容", notes = "通过name查找artists")
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
         List<Artists> results;
-        results=artistsService.searchByName(name);
-        if (results.size() == 1) {
-            return FastJsonUtils.resultSuccess(200, "搜索track成功", results.get(0));
-        } else {
-            return FastJsonUtils.resultError(404, "name不存在", null);
+        results=artistsService.searchByNameInd(name);
+        if(results.size()==0)
+        {
+            return FastJsonUtils.resultSuccess(404, "name不存在", results);
+        }
+        else {
+            return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
         }
     }
     @ResponseBody

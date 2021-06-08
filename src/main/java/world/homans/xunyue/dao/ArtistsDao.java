@@ -21,6 +21,7 @@ public interface ArtistsDao extends MyMapper<Artists> {
 
     List<Artists> selectByName(String name);
 
+    void deleteArtists(String id);
 
 }
 

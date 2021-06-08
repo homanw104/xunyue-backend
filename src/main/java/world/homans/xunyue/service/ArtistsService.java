@@ -37,5 +37,8 @@ public class ArtistsService extends BaseServiceImpl<Artists> {
         return artistsDao.selectByName(name);
     }
 
+    public  void deleteArtists(String id) {
+        artistsDao.deleteArtists(id);
+    }
 
 }

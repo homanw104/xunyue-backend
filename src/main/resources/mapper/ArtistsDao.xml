@@ -22,4 +22,8 @@
        limit 6
     </select>
 
+    <insert id="deleteArtists" parameterType="String">
+        DELETE FROM artists  WHERE id = #{id}
+    </insert>
+
 </mapper>

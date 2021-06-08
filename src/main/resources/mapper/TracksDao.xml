@@ -38,5 +38,9 @@
         limit 6
     </select>
 
+    <insert id="deleteTracks" parameterType="String">
+        DELETE FROM tracks WHERE id = #{id}
+    </insert>
+
 
 </mapper>

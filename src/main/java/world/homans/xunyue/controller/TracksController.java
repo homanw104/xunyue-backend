@@ -108,5 +108,11 @@ public class TracksController extends BaseController {
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
 
-
+    @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "删除歌曲", notes = "删除歌曲")
+    public String delete(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id
+    ) {
+        tracksService.deleteTracks(id);
+        return FastJsonUtils.resultSuccess(200, "删除tracks内容成功",null);
+    }
 }

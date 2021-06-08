@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - music@db.homans.world" uuid="40730b08-ac9a-4b27-902c-3cd88ac02c5c">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://db.homans.world:8809/music?characterEncoding=utf-8</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="music@db.homans.world" uuid="2049c985-cb0f-4d29-905c-cc13128f35c3">
+    <data-source source="LOCAL" name="music@db.homans.world" uuid="22f059b3-fc1d-4f01-a0a8-e997ccc8831b">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://db.homans.world:8809/music</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
 </project>

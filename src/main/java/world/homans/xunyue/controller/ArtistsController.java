@@ -82,4 +82,12 @@ public class ArtistsController extends BaseController {
         artistsService.update(newArt);
         return FastJsonUtils.resultSuccess(200, "修改成功", null);
     }
+
+    @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "删除歌手", notes = "删除歌手")
+    public String delete(@ApiParam(name = "id", value = "艺术家id",required = true)@RequestParam String id
+    ) {
+        artistsService.deleteArtists(id);
+        return FastJsonUtils.resultSuccess(200, "删除artists内容成功",null);
+    }
 }

@@ -38,4 +38,8 @@ public class TracksService extends BaseServiceImpl<Tracks> {
         return tracksDao.selectByName(name);
     }
 
+    public  void deleteTracks(String id) {
+        tracksDao.deleteTracks(id);
+    }
+
 }

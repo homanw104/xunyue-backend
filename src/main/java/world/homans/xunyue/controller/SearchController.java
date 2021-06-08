@@ -45,7 +45,7 @@ public class SearchController extends BaseController {
         result.put("top",topresult);
         String type="";
         if(artistsresults.size()==0&&tracksresults.size()==0) {
-            return FastJsonUtils.resultSuccess(404, "没有记录", null);
+            return FastJsonUtils.resultSuccess(404, "没有相关信息", null);
         }
         else{
         if(artistsresults.size()==0){

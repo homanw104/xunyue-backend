@@ -36,48 +36,9 @@ public class Tracks extends BaseEntity {
     @Column(name = "`release_date`")
     private String release_date;
 
-    @Column(name = "`danceability`")
-    private Double danceability;
-
-    @Column(name = "`energy`")
-    private Double energy;
-
-    @Column(name = "`key`")
-    private int key;
-
-    @Column(name = "`loudness`")
-    private Double loudness;
-
-    @Column(name = "`mode`")
-    private int mode;
-
-    @Column(name = "`speechiness`")
-    private Double speechiness;
-
-    @Column(name = "`acousticness`")
-    private Double acousticness;
-
-    @Column(name = "`instrumentalness`")
-    private Double instrumentalness;
-
-    @Column(name = "`liveness`")
-    private Double liveness;
-
-    @Column(name = "`valence`")
-    private Double valence;
-
-    @Column(name = "`tempo`")
-    private Double tempo;
-
-    @Column(name = "`time_signature`")
-    private Integer time_signature;
-
-
 
     public Tracks(String id, String name, int popularity, int duration_ms, int explicit, String artists,
-                  String id_artists, String release_date, Double danceability, Double energy, int key, Double loudness, int mode ,
-                  Double speechiness, Double acousticness, Double instrumentalness, Double liveness, Double valence,
-                  Double tempo, int time_signature) {
+                  String id_artists, String release_date) {
         this.id = id;
         this.name = name;
         this.popularity =popularity;
@@ -86,18 +47,7 @@ public class Tracks extends BaseEntity {
         this.artists = artists;
         this.id_artists =id_artists;
         this.release_date = release_date;
-        this.danceability = danceability;
-        this.energy = energy;
-        this.key = key;
-        this.loudness = loudness;
-        this.mode =mode;
-        this.speechiness = speechiness;
-        this.acousticness =acousticness;
-        this.instrumentalness =instrumentalness;
-        this.liveness = liveness;
-        this.valence = valence;
-        this.tempo = tempo;
-        this.time_signature = time_signature;
+
     }
 
     public Tracks() {
@@ -168,99 +118,5 @@ public class Tracks extends BaseEntity {
         this.release_date = release_date;
     }
 
-    public Double getDanceability() {
-        return danceability;
-    }
 
-    public void setDanceability(Double danceability) {
-        this.danceability = danceability;
-    }
-
-    public Double getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(Double energy) {
-        this.energy = energy;
-    }
-
-    public Integer getKey() {
-        return key;
-    }
-
-    public void setKey(Integer key) {
-        this.key = key;
-    }
-
-    public Double getLoudness() {
-        return loudness;
-    }
-
-    public void setLoudness(Double loudness) {
-        this.loudness = loudness;
-    }
-
-    public Integer getMode() {
-        return mode;
-    }
-
-    public void setMode(Integer mode) {
-        this.mode = mode;
-    }
-
-    public Double getSpeechiness() {
-        return speechiness;
-    }
-
-    public void setSpeechiness(Double speechiness) {
-        this.speechiness = speechiness;
-    }
-
-    public Double getAcousticness() {
-        return acousticness;
-    }
-
-    public void setAcousticness(Double acousticness) {
-        this.acousticness = acousticness;
-    }
-
-    public Double getInstrumentalness() {
-        return instrumentalness;
-    }
-
-    public void setInstrumentalness(Double instrumentalness) {
-        this.instrumentalness = instrumentalness;
-    }
-
-    public Double getLiveness() {
-        return liveness;
-    }
-
-    public void setLiveness(Double liveness) {
-        this.liveness = liveness;
-    }
-
-    public Double getValence() {
-        return valence;
-    }
-
-    public void setValence(Double valence) {
-        this.valence = valence;
-    }
-
-    public Double getTempo() {
-        return tempo;
-    }
-
-    public void setTempo(Double tempo) {
-        this.tempo = tempo;
-    }
-
-    public Integer getTime_signature() {
-        return time_signature;
-    }
-
-    public void setTime_signature(Integer time_signature) {
-        this.time_signature = time_signature;
-    }
 }

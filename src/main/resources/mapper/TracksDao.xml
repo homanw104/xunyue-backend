@@ -10,25 +10,11 @@
         <result column="artists" jdbcType="LONGVARCHAR" property="artists"/>
         <result column="id_artists" jdbcType="LONGVARCHAR" property="id_artists"/>
         <result column="release_date" jdbcType="VARCHAR" property="release_date"/>
-        <result column="danceability" jdbcType="DOUBLE" property="danceability"/>
-        <result column="energy" jdbcType="DOUBLE" property="energy"/>
-        <result column="key" jdbcType="INTEGER" property="key"/>
-        <result column="loudness" jdbcType="DOUBLE" property="loudness"/>
-        <result column="mode" jdbcType="INTEGER" property="mode"/>
-        <result column="speechiness" jdbcType="DOUBLE" property="speechiness"/>
-        <result column="acousticness" jdbcType="DOUBLE" property="acousticness"/>
-        <result column="instrumentalness" jdbcType="DOUBLE" property="instrumentalness"/>
-        <result column="liveness" jdbcType="DOUBLE" property="liveness"/>
-        <result column="valence" jdbcType="DOUBLE" property="valence"/>
-        <result column="tempo" jdbcType="DOUBLE" property="tempo"/>
-        <result column="time_signature" jdbcType="INTEGER" property="time_signature"/>
     </resultMap>
 
     <insert id="insertTracks" parameterType="Tracks">
-        INSERT INTO tracks (id, name, popularity, duration_ms, explicit, artists, id_artists, release_date, danceability,
-                            energy, `key`, loudness, mode, speechiness, instrumentalness, liveness, valence, tempo, time_signature)
-            Value(#{id},#{name},#{popularity},#{duration_ms},#{explicit},#{artists},#{id_artists},#{release_date},#{danceability},
-                  #{energy},#{key},#{loudness},#{mode},#{speechiness},#{instrumentalness},#{liveness},#{valence},#{tempo},#{time_signature})
+        INSERT INTO tracks (id, name, popularity, duration_ms, explicit, artists, id_artists, release_date)
+            Value(#{id},#{name},#{popularity},#{duration_ms},#{explicit},#{artists},#{id_artists},#{release_date})
     </insert>
     <select id="selectByName" resultMap="TracksMap">
         select * from `tracks`
@@ -42,5 +28,10 @@
         DELETE FROM tracks WHERE id = #{id}
     </insert>
 
+    <select id="selectTop8" resultMap="TracksMap">
+        select * from `tracks`
+        order by popularity desc
+        limit 8
+    </select>
 
 </mapper>

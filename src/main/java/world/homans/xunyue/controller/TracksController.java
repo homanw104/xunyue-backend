@@ -83,25 +83,12 @@ public class TracksController extends BaseController {
             @ApiParam(name = "explicit", value = "概述") @RequestParam(required = false,defaultValue = "0") int explicit,
             @ApiParam(name = "artists", value = "歌手", required = true) @RequestParam String artists,
             @ApiParam(name = "id_artists", value = "艺术家id") @RequestParam(required = false,defaultValue = "") String id_artists,
-            @ApiParam(name = "release_date", value = "发行日期") @RequestParam(required = false,defaultValue = "") String release_date,
-            @ApiParam(name = "danceability", value = "舞蹈适配度") @RequestParam(required = false,defaultValue = "") Double danceability,
-            @ApiParam(name = "energy", value = "力量感") @RequestParam(required = false,defaultValue = "") Double energy,
-            @ApiParam(name = "key", value = "关键词") @RequestParam(required = false,defaultValue = "0") int key,
-            @ApiParam(name = "loudness", value = "响度") @RequestParam(required = false,defaultValue = "") Double loudness,
-            @ApiParam(name = "mode", value = "模式") @RequestParam(required = false,defaultValue = "0") int mode,
-            @ApiParam(name = "speechiness", value = "速度") @RequestParam(required = false,defaultValue = "") Double speechiness,
-            @ApiParam(name = "acousticness", value = "穿透性") @RequestParam(required = false,defaultValue = "") Double acousticness,
-            @ApiParam(name = "instrumentalness", value = "演奏设备") @RequestParam(required = false,defaultValue = "") Double instrumentalness,
-            @ApiParam(name = "liveness", value = "现场感") @RequestParam(required = false,defaultValue = "") Double liveness,
-            @ApiParam(name = "valence", value = "价带") @RequestParam(required = false,defaultValue = "") Double valence,
-            @ApiParam(name = "tempo", value = "节拍") @RequestParam(required = false,defaultValue = "") Double tempo,
-            @ApiParam(name = "time_signature", value = "节拍记号") @RequestParam(required = false,defaultValue = "0") int time_signature){
+            @ApiParam(name = "release_date", value = "发行日期") @RequestParam(required = false,defaultValue = "") String release_date
+           ){
         System.out.println(name);
         String id = UUIDUtilsKt.toBase62String(UUID.randomUUID());
         Tracks tracks = new Tracks(id, name, popularity, duration_ms, explicit, artists,
-                id_artists, release_date, danceability, energy, key, loudness, mode ,
-                speechiness, acousticness, instrumentalness, liveness, valence,
-                tempo, time_signature);
+                id_artists, release_date);
         tracksService.insertTracks(tracks);
         Map<String, Object> result = new HashMap<>();
         result.put("id", id);

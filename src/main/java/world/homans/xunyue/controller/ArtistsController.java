@@ -1,4 +1,5 @@
 package world.homans.xunyue.controller;
+
 import me.ccampo.uuid62.core.util.UUIDUtilsKt;
 import world.homans.xunyue.model.Artists;
 import world.homans.xunyue.service.ArtistsService;
@@ -10,17 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import world.homans.xunyue.base.BaseController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-
 @RestController
 @RequestMapping("/artists")
 @Api(description = "歌手接口")
+@CrossOrigin
 public class ArtistsController extends BaseController {
+
     @Autowired
     private ArtistsService artistsService;
 
@@ -35,6 +36,7 @@ public class ArtistsController extends BaseController {
             return FastJsonUtils.resultError(404, "id不存在", null);
         }
     }
+
     @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "通过name查找内容", notes = "通过name查找artists")
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
@@ -48,6 +50,7 @@ public class ArtistsController extends BaseController {
             return FastJsonUtils.resultSuccess(200, "搜索artists成功", results);
         }
     }
+
     @ResponseBody
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "添加歌手", notes = "添加歌手")
@@ -64,6 +67,7 @@ public class ArtistsController extends BaseController {
         result.put("id", id);
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
+
     @PostMapping("/update")
     @ApiOperation(value = "修改艺术家信息", notes = "修改艺术家信息")
     public String updateInfo(@ApiParam(name = "id", value = "艺术家id",required = true)@RequestParam String id,
@@ -92,4 +96,5 @@ public class ArtistsController extends BaseController {
         artistsService.deleteArtists(id);
         return FastJsonUtils.resultSuccess(200, "删除artists内容成功",null);
     }
+
 }

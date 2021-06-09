@@ -10,7 +10,7 @@
     </parent>
     <groupId>world.homans</groupId>
     <artifactId>xunyue-backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <name>Xun Yue</name>
     <description>A music discovery app</description>
     <properties>
@@ -173,6 +173,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>compile</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

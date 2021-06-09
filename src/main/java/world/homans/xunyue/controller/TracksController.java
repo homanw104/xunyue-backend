@@ -1,6 +1,5 @@
 package world.homans.xunyue.controller;
 
-
 import me.ccampo.uuid62.core.util.UUIDUtilsKt;
 import world.homans.xunyue.model.Tracks;
 import world.homans.xunyue.service.TracksService;
@@ -11,14 +10,14 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import world.homans.xunyue.base.BaseController;
-
 import java.util.*;
-
 
 @RestController
 @RequestMapping("/tracks")
 @Api(description = "歌曲信息接口")
+@CrossOrigin
 public class TracksController extends BaseController {
+
     @Autowired
     private TracksService tracksService;
 
@@ -33,6 +32,7 @@ public class TracksController extends BaseController {
             return FastJsonUtils.resultError(404, "id不存在", null);
         }
     }
+
     @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "通过name查找内容", notes = "通过name查找tracks")
     public String searchByName(@ApiParam(name = "name", value = "name",required = true) @RequestParam String name) {
@@ -46,6 +46,7 @@ public class TracksController extends BaseController {
             return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results);
         }
     }
+
     @GetMapping(value = "/searchByArtists", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "通过artists_id查找内容", notes = "通过artists_id查找tracks")
     public String searchByAid(@ApiParam(name = "id", value = "id",required = true) @RequestParam String id) {
@@ -60,6 +61,7 @@ public class TracksController extends BaseController {
             return FastJsonUtils.resultSuccess(200, "搜索tracks成功", results);
         }
     }
+
     @PostMapping("/update")
     @ApiOperation(value = "修改歌曲信息", notes = "修改歌曲信息")
     public String updateInfo(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id,
@@ -68,9 +70,7 @@ public class TracksController extends BaseController {
                              @ApiParam(name = "artists", value = "艺人名字")@RequestParam(required = false, defaultValue = "") String artists,
                              @ApiParam(name = "duration_ms", value = "时长")@RequestParam(required = false, defaultValue = "") int duration_ms,
                              @ApiParam(name = "release_date", value = "发行时间")@RequestParam(required = false, defaultValue = "") String release_date,
-                             @ApiParam(name = "popularity", value = "受欢迎程度")@RequestParam(required = false, defaultValue = "") int popularity
-
-    ) {
+                             @ApiParam(name = "popularity", value = "受欢迎程度")@RequestParam(required = false, defaultValue = "") int popularity) {
         Tracks newTra=tracksService.searchById(id).get(0);
         if(!"".equals(name))
             newTra.setName(name);
@@ -99,8 +99,7 @@ public class TracksController extends BaseController {
             @ApiParam(name = "explicit", value = "概述") @RequestParam(required = false,defaultValue = "0") int explicit,
             @ApiParam(name = "artists", value = "歌手", required = true) @RequestParam String artists,
             @ApiParam(name = "id_artists", value = "艺术家id") @RequestParam(required = false,defaultValue = "") String id_artists,
-            @ApiParam(name = "release_date", value = "发行日期") @RequestParam(required = false,defaultValue = "") String release_date
-           ){
+            @ApiParam(name = "release_date", value = "发行日期") @RequestParam(required = false,defaultValue = "") String release_date) {
         System.out.println(name);
         String id = UUIDUtilsKt.toBase62String(UUID.randomUUID());
         Tracks tracks = new Tracks(id, name, popularity, duration_ms, explicit, artists,
@@ -113,9 +112,9 @@ public class TracksController extends BaseController {
 
     @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "删除歌曲", notes = "删除歌曲")
-    public String delete(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id
-    ) {
+    public String delete(@ApiParam(name = "id", value = "歌曲id",required = true)@RequestParam String id) {
         tracksService.deleteTracks(id);
         return FastJsonUtils.resultSuccess(200, "删除tracks内容成功",null);
     }
+
 }

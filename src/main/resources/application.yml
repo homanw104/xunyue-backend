@@ -23,3 +23,6 @@ mapper:
   mappers: world.homans.xunyue.util.MyMapper
   not-empty: true
   identity: MYSQL
+
+server:
+  port: 9900

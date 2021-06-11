@@ -1,19 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: Database0529
     url: jdbc:mysql://db.homans.world:8809/music?characterEncoding=utf-8
-    username: temp
+    username: ENC(MzkH/HV/hNFhGThPq+WcZrnCs1AKEGfE1+YZqcwUnsyLcOlZ/ZrtnSMLoErDRU4X)
+    password: ENC(IDKqQd7UsKDOHwLvIYwUH40Pol3RP1zS3vf45a49QcoqetbSVSUOOy3wQsiqhjoT)
   servlet:
     multipart:
       enabled: true
       max-file-size: 10MB
       max-request-size: 10MB
-  elasticsearch:
-    rest:
-      uris: api.homans.world:9200
-      username: temp
-      password: Database0529
 
 mybatis:
   mapper-locations: classpath*:/mapper/**.xml
@@ -26,3 +21,8 @@ mapper:
 
 server:
   port: 9900
+  http-port: 9980
+  ssl:
+    key-store: classpath:MyDSKeyStore.jks
+    key-store-password: ENC(XZwjnWZzePGJzRRc0x8m5foWNXMVJ3TyZRedGLOnVN9f2BJb3+wcFqGpayeM3bjK)
+    key-password: ENC(XZwjnWZzePGJzRRc0x8m5foWNXMVJ3TyZRedGLOnVN9f2BJb3+wcFqGpayeM3bjK)

@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "server.http-port",
+      "type": "java.lang.String",
+      "description": "Additional http port. Used in TomcatConfig."
+    }
+  ]
+}

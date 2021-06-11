@@ -1,38 +1,23 @@
 package world.homans.xunyue.base;
 
-
-import io.searchbox.client.JestClient;
-import io.searchbox.client.JestResult;
-import io.searchbox.core.Search;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
 
-import javax.annotation.Resource;
-import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
-//import com.github.pagehelper.PageHelper;
-//import com.github.pagehelper.PageInfo;
 @Service
 @Slf4j
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
-  // @Autowired
-   // @Resource
-   // public JestClient jestClient;
 
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(BaseServiceImpl.class);
 

@@ -3,7 +3,6 @@ package world.homans.xunyue.dao;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.data.elasticsearch.annotations.Query;
 import world.homans.xunyue.model.Artists;
 import world.homans.xunyue.util.MyMapper;
 

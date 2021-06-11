@@ -9,7 +9,6 @@ import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
@@ -40,11 +39,12 @@ public class RestTemplateConfig {
         connectionManager.setDefaultMaxPerRoute(100);
         connectionManager.setValidateAfterInactivity(2000);
         RequestConfig requestConfig = RequestConfig.custom()
-                //服务器返回数据(response)的时间，超过抛出read timeout
+                // 服务器返回数据 (response) 的时间，超过抛出 read timeout.
                 .setSocketTimeout(65000)
-                //连接上服务器(握手成功)的时间，超出抛出connect timeout
+                // 连接上服务器 (握手成功) 的时间，超出抛出 connect timeout.
                 .setConnectTimeout(5000)
-                //从连接池中获取连接的超时时间，超时间未拿到可用连接，会抛出org.apache.http.conn.ConnectionPoolTimeoutException: Timeout waiting for connection from pool
+                // 从连接池中获取连接的超时时间，超时间未拿到可用连接，会抛出
+                // org.apache.http.conn.ConnectionPoolTimeoutException: Timeout waiting for connection from pool.
                 .setConnectionRequestTimeout(1000)
                 .build();
         return HttpClientBuilder.create()
@@ -52,4 +52,5 @@ public class RestTemplateConfig {
                 .setConnectionManager(connectionManager)
                 .build();
     }
+
 }

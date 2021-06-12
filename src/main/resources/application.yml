@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db.homans.world:8809/music?characterEncoding=utf-8
+    url: jdbc:mysql://db.xunyue.homans.world:8809/music?characterEncoding=utf-8&useSSL=true
     username: ENC(MzkH/HV/hNFhGThPq+WcZrnCs1AKEGfE1+YZqcwUnsyLcOlZ/ZrtnSMLoErDRU4X)
     password: ENC(IDKqQd7UsKDOHwLvIYwUH40Pol3RP1zS3vf45a49QcoqetbSVSUOOy3wQsiqhjoT)
   servlet:

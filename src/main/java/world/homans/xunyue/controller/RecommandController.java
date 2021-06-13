@@ -16,10 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/recommand")
 @Api(description = "推荐接口")
-@CrossOrigin
 public class RecommandController extends BaseController {
 
     @Autowired
@@ -31,7 +31,7 @@ public class RecommandController extends BaseController {
         Map<String, Object> result = new HashMap<>();
         List<Tracks> recommendResults;
         recommendResults = tracksService.showTop8();
-        result.put("recommend",recommendResults);
+        result.put("recommend", recommendResults);
         return FastJsonUtils.resultSuccess(200, "拉取推荐列表成功", result);
     }
 

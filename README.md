@@ -1,8 +1,9 @@
 # xunyue-backend
 
-Backend project for the Database Application course, a music-discovery app,
-using **Springboot**, **MyBatis** and **MySQL**. Front end's tech stack are
-listed under our front end repository [xunyue-frontend](https://github.com/homanw104/xunyue-frontend).
+Xunyue, a music-discovery app. This repository is a backend project for the
+Database Application course, using **Springboot**, **MyBatis** and **MySQL**.
+Front end's tech stack are listed under our front end repository
+[xunyue-frontend](https://github.com/homanw104/xunyue-frontend).
 
 Project demo: [xunyue.homans.world](https://xunyue.homans.world). If the
 demo's dead, contact us for help :)
@@ -33,7 +34,7 @@ demo's dead, contact us for help :)
 
 ![img_0.png](assets/img_0.png)
 
-### Generating Primary Key `id`.
+### Generating Primary Key
 
 To avoid duplications in tracks and artists, a UUID (v4) is generated on
 entity's creation as `id`. The UUID is encoded into base62 format and stored
@@ -48,7 +49,7 @@ used for base62 encoding in our project.
 </dependency>
 ```
 
-### DDL for `artists`
+### DDL for artists
 
 * `id`: 艺人 id，主键
 * `name`: 艺人名字
@@ -68,7 +69,7 @@ CREATE TABLE `artists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 ```
 
-### DDL for `tracks`
+### DDL for tracks
 
 * `id`: 歌曲 id，主键
 * `name`: 歌曲名字
@@ -107,19 +108,19 @@ Link to dataset:
 
 ### SSL Support
 
-This project enabled HTTPS support by adding a certificate issued for
+This project has enabled HTTPS support by adding a certificate issued for
 `api.xunyue.homans.world` (valid in 90 days). The `TomcatConfig` class
 will allow both HTTP port 9980 and HTTPS port 9900 to be used. You can
 change those ports in `/src/main/resources/application.yml`.
 
-### Encrypted Properties in `application.yml`
+### Encrypted Properties
 
-There are properties in `application.yml` encrypted and parsed by **Jasypt**.
+Some properties in `application.yml` are encrypted and parsed by **Jasypt**.
 To run this project, you need to add `-Djasypt.encryptor.password` parameter
 in VM options for Jasypt to parse those secrets and start the application.
 
 ```shell
-java -jar xxx.jar --jasypt.encryptor.password=xxx
+java -jar xxx.jar --jasypt.encryptor.password=masterPassword
 ```
 
 Ask contributors for password, or replace those properties quoted with `ENC()`
@@ -129,7 +130,7 @@ own property string.
 
 ```shell
 mvn jasypt:encrypt-value \
--Djasypt.encryptor.password="jasypt password" \
+-Djasypt.encryptor.password="masterPassword" \
 -Djasypt.plugin.value="theValueYouWantToEncrypt"
 ```
 
@@ -144,7 +145,7 @@ Reference: <https://github.com/ulisesbocchio/jasypt-spring-boot>
 
 * The server is recommended to have at least 512 MB of RAM to run a
   java application.
-* Having a DNS `A` record points to the server.
+* Having a DNS A record points to the server.
 
 ### Deploying MySQL
 
@@ -185,7 +186,7 @@ sudo service mysql restart
 
 ### Install JDK 1.8
 
-Download JDK 1.8 (you may find a mirror for it):
+Download JDK 1.8 (you may find a mirror link for it):
 
 ```shell
 `wget https://download.oracle.com/otn/java/jdk/8u271-b09/61ae65e088624f5aaa0b1d2d801acb16/jdk-8u271-linux-x64.tar.gz
@@ -198,7 +199,7 @@ sudo mkdir -p /usr/local/java
 sudo tar -vzxf jdk-8u*-linux-x64.tar.gz -C /usr/local/java/
 ```
 
-Add `JAVA_HOME` environment variable: `sudo nano /etc/profile`
+Add `JAVA_HOME` environment variable at the end of file: `sudo nano /etc/profile`
 
 ```shell
 export JAVA_HOME=/usr/local/java/jdk1.8.0_271
@@ -224,7 +225,7 @@ Then create a script for starting your project: `nano start.sh`
 ```shell
 #!/bin/bash
 source /etc/profile;
-nohup java -jar -Djasypt.encryptor.password=yourJasyptPassword xunyue*.jar &
+nohup java -jar -Djasypt.encryptor.password=masterPassword xunyue*.jar &
 ```
 
 Create another script for the stopping job: `nano stop.sh`
@@ -241,7 +242,7 @@ else
 fi
 ```
 
-Move your `*.jar` to the same directory as your scripts, now run `./start.sh`
+Move your `*.jar` to the same directory as your scripts, run `./start.sh`
 for starting the server and run `./stop.sh` for stopping it.
 
 Now you are ready to work :)

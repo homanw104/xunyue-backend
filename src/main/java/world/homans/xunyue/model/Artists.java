@@ -2,13 +2,14 @@ package world.homans.xunyue.model;
 
 import com.alibaba.fastjson.annotation.JSONType;
 import world.homans.xunyue.base.BaseEntity;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Table(name = "`artists`")
-@JSONType(orders = {"id","followers","genres", "name","popularity"})
+@JSONType(orders = {"id", "followers", "genres", "name", "popularity"})
 
-public class Artists extends BaseEntity{
+public class Artists extends BaseEntity {
     @Column(name = "`id`")
     private String id;
 
@@ -27,12 +28,12 @@ public class Artists extends BaseEntity{
     public Artists(String id, int followers, String genres, String name, int popularity) {
         this.id = id;
         this.followers = followers;
-        this.genres =genres;
-        this.name =name;
-        this.popularity =popularity;
+        this.genres = genres;
+        this.name = name;
+        this.popularity = popularity;
     }
-    public Artists()
-    {
+
+    public Artists() {
 
     }
 
@@ -48,27 +49,32 @@ public class Artists extends BaseEntity{
         return followers;
     }
 
-    public void setFollowers(int  followers) {
+    public void setFollowers(int followers) {
         this.followers = followers;
     }
 
-    public String getGenres() { return genres; }
+    public String getGenres() {
+        return genres;
+    }
 
     public void setGenres(String genres) {
         this.genres = genres;
     }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getPopularity() { return popularity; }
+    public int getPopularity() {
+        return popularity;
+    }
 
     public void setPopularity(int popularity) {
         this.popularity = popularity;
     }
-
 
 }

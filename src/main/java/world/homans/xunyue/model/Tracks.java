@@ -1,4 +1,5 @@
 package world.homans.xunyue.model;
+
 import com.alibaba.fastjson.annotation.JSONType;
 import world.homans.xunyue.base.BaseEntity;
 
@@ -6,10 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Table(name = "`tracks`")
-@JSONType(orders = {"id","name","popularity", "duration_ms","explicit","artists",
-        "id_artists","release_date", "danceability","energy","key","loudness","mode",
-        "speechiness","acousticness","instrumentalness","liveness","valence",
-        "tempo","time_signature"})
+@JSONType(orders = {"id", "name", "popularity", "duration_ms", "explicit", "artists",
+        "id_artists", "release_date", "danceability", "energy", "key", "loudness", "mode",
+        "speechiness", "acousticness", "instrumentalness", "liveness", "valence",
+        "tempo", "time_signature"})
 public class Tracks extends BaseEntity {
 
     @Column(name = "`id`")
@@ -41,11 +42,11 @@ public class Tracks extends BaseEntity {
                   String id_artists, String release_date) {
         this.id = id;
         this.name = name;
-        this.popularity =popularity;
+        this.popularity = popularity;
         this.duration_ms = duration_ms;
         this.explicit = explicit;
         this.artists = artists;
-        this.id_artists =id_artists;
+        this.id_artists = id_artists;
         this.release_date = release_date;
 
     }
@@ -66,7 +67,7 @@ public class Tracks extends BaseEntity {
         return name;
     }
 
-    public void setName(String  name) {
+    public void setName(String name) {
         this.name = name;
     }
 

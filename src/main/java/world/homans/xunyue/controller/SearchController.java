@@ -11,14 +11,15 @@ import world.homans.xunyue.model.Tracks;
 import world.homans.xunyue.service.ArtistsService;
 import world.homans.xunyue.service.TracksService;
 import world.homans.xunyue.util.FastJsonUtils;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/search")
 @Api(description = "模糊搜索接口")
-@CrossOrigin
 public class SearchController extends BaseController {
 
     @Autowired
@@ -39,7 +40,7 @@ public class SearchController extends BaseController {
         tracksResults = tracksService.searchByName(name);
         artistsResults = artistsService.searchByName(name);
         result1.put("artists", artistsResults);
-        result2.put("tracks",tracksResults);
+        result2.put("tracks", tracksResults);
         result.put("top", topResults);
         String type = "";
         if (artistsResults.size() == 0 && tracksResults.size() == 0) {

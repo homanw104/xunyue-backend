@@ -1,15 +1,12 @@
 package world.homans.xunyue.service;
 
-import springfox.documentation.spring.web.json.Json;
 import world.homans.xunyue.base.BaseServiceImpl;
 import world.homans.xunyue.dao.TracksDao;
-import world.homans.xunyue.model.Artists;
 import world.homans.xunyue.model.Tracks;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,23 +27,27 @@ public class TracksService extends BaseServiceImpl<Tracks> {
         tracksDao.updateById(newTra);
     }
 
-    public  void insertTracks(Tracks tracks) {
+    public void insertTracks(Tracks tracks) {
         tracksDao.insertTracks(tracks);
     }
+
     public List<Tracks> searchByNameInd(String name) {
         return tracksDao.selectByNameInd(name);
     }
+
     public List<Tracks> searchByName(String name) {
         return tracksDao.selectByName(name);
     }
+
     public List<Tracks> searchByAid(String id_artists) {
         return tracksDao.selectByAid(id_artists);
     }
+
     public List<Tracks> showTop8() {
         return tracksDao.selectTop8();
     }
 
-    public  void deleteTracks(String id) {
+    public void deleteTracks(String id) {
         tracksDao.deleteTracks(id);
     }
 

@@ -16,7 +16,6 @@ public class ArtistsService extends BaseServiceImpl<Artists> {
 
     @Override
     public Mapper<Artists> getMapper() {
-
         return artistsDao;
     }
 
@@ -25,23 +24,25 @@ public class ArtistsService extends BaseServiceImpl<Artists> {
         return artistsDao.selectById(id);
     }
 
-    public  void insertArtists(Artists artists) {
+    public void insertArtists(Artists artists) {
         artistsDao.insertArtists(artists);
     }
 
     public void update(Artists newArt) {
         artistsDao.updateById(newArt);
     }
-    //artists和tracks都进行模糊搜索并根据popularity排序
+
+    // artists 和 tracks 都进行模糊搜索并根据 popularity 排序
     public List<Artists> searchByName(String name) {
         return artistsDao.selectByName(name);
     }
-    //单独进行模糊搜索
+
+    // 单独进行模糊搜索
     public List<Artists> searchByNameInd(String name) {
         return artistsDao.selectByNameInd(name);
     }
 
-    public  void deleteArtists(String id) {
+    public void deleteArtists(String id) {
         artistsDao.deleteArtists(id);
     }
 

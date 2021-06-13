@@ -34,19 +34,18 @@ public class RestTemplateConfig {
                 .register("http", PlainConnectionSocketFactory.getSocketFactory())
                 .register("https", SSLConnectionSocketFactory.getSocketFactory())
                 .build();
+
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(registry);
         connectionManager.setMaxTotal(200);
         connectionManager.setDefaultMaxPerRoute(100);
         connectionManager.setValidateAfterInactivity(2000);
+
         RequestConfig requestConfig = RequestConfig.custom()
-                // 服务器返回数据 (response) 的时间，超过抛出 read timeout.
                 .setSocketTimeout(65000)
-                // 连接上服务器 (握手成功) 的时间，超出抛出 connect timeout.
                 .setConnectTimeout(5000)
-                // 从连接池中获取连接的超时时间，超时间未拿到可用连接，会抛出
-                // org.apache.http.conn.ConnectionPoolTimeoutException: Timeout waiting for connection from pool.
                 .setConnectionRequestTimeout(1000)
                 .build();
+
         return HttpClientBuilder.create()
                 .setDefaultRequestConfig(requestConfig)
                 .setConnectionManager(connectionManager)
